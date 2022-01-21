@@ -2,9 +2,9 @@ import { TimeLineChart } from "./components/TimeLineChart";
 import { useState } from "react";
 import * as XLSX from 'xlsx';
 function App() {
-  const [columns, setColumns] = useState([]);
   const [data, setData] = useState([]);
- 
+  const [totalTime, setTotalTime] = useState(0)
+  const [timePerPerson, setTimePerPerson] = useState([])
   // process CSV data
   const processData = dataString => {
     const dataStringLines = dataString.split(/\r\n|\n/);
@@ -40,9 +40,20 @@ function App() {
       name: c,
       selector: c,
     }));
- 
+    console.log(list)
+    list.sort((a, b) => new Date(a.Date) - new Date(b.Date))
     setData(list);
-    setColumns(columns);
+    const sum = list.reduce((sum, value) => sum + parseFloat(value.Hours), 0)
+    setTotalTime(sum)
+
+    const perPerson = list.reduce((res, value) => {
+      if(!([value["First name"]] in res))
+        res[value["First name"]] = 0
+      
+      res[value["First name"]] += parseFloat(value.Hours)
+      return res
+    }, {})
+    setTimePerPerson(Object.keys(perPerson).map((person) => ({name: person, hours: perPerson[person]})))
   }
  
   // handle file upload
@@ -66,10 +77,15 @@ function App() {
   return <>
     <input
       type="file"
-      accept=".csv,.xlsx,.xls"
+      accept=".csv"
       onChange={handleFileUpload}
     />
-    <p>{JSON.stringify(data)}</p>
+    <h2>Total time in hours: {totalTime}</h2>
+    <ul>
+    {timePerPerson.map((data) => <>
+      <li>{data.hours} = {data.name}</li>
+    </>)}
+    </ul>
     <TimeLineChart data={data} />
   </>
 }
