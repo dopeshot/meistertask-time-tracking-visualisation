@@ -1,4 +1,5 @@
 import React from 'react';
+import { randomColor } from '../logic/helper';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 export const TimeLineChart = ({ data }) => {
@@ -20,7 +21,9 @@ export const TimeLineChart = ({ data }) => {
       <YAxis />
       <Tooltip />
       <Legend />
-      <Line type="monotone" dataKey="Hours" stroke="#8884d8" activeDot={{ r: 8 }} />
+      {Object.keys(data[0]).slice(1).map((entry) =>
+        <Line strokeWidth={4} dot={0} type="monotone" dataKey={entry} stroke={`#${randomColor()}`} activeDot={{ r: 7 }} />
+      ) }
     </LineChart>
     )
 
