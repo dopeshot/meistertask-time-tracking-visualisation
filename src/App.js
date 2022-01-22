@@ -13,11 +13,11 @@ function App() {
       accept=".csv"
       onChange={(event) => handleFileUpload(event,setData,setTotalTime,setTimePerPerson,setTotalProjectTime)}
     />
-    <h2>Total time in hours: {totalTime}</h2>
-    <h2>Total project time in days: {totalProjectTime}</h2>
+    <h2>[{totalProjectTime.toFixed(2)}] Days the project existed.</h2>
+    <h2>[{totalTime.toFixed(2)}] Hours of work.</h2>
     <ul>
     {timePerPerson.map((data) => <>
-      <li>{data.hours} = {data.name}</li>
+      <li>{data.hours.toFixed(2)} = {data.name}</li>
     </>)}
     </ul>
     {data.length > 0 && <TimeLineChart data={data} />}

@@ -44,12 +44,12 @@ const processOutputs = (list, setData, setTotalTime, setTimePerPerson,setTotalPr
     // console.log(list[0].Date);
     
     // Fill in the hours from list
-    for(let x = 0; x< list.length;x++){
+    for(let x = 0; x< list.length-1;x++){
         const entry = list[x]
         finalData.find((o,i)=>{
             if(o.Date === entry.Date){
                 finalData.at(-1)[entry["First name"]] += parseFloat(entry.Hours)
-                finalData[i][entry["First name"]] = finalData.at(-1)[entry["First name"]]
+                finalData[i][entry["First name"]] = parseFloat(finalData.at(-1)[entry["First name"]]).toFixed(2)
             }
         })
     }
