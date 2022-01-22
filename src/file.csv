@@ -14,39 +14,6 @@
 01/19/2022,-,dopeshot_d_p_TruthOrDare,unit tests,0.2439,Max,Herkenhoff
 08/17/2021,-,dopeshot_d_p_TruthOrDare,Tasks,5.0578,Joy,Springer
 01/17/2022,-,dopeshot_d_p_TruthOrDare,api.../sets?lang=ENUM GET request,1.5089,Maximilian,Dolbaum
-01/11/2022,-,dopeshot_d_p_TruthOrDare,BUG,0.0136,Michael,C
-01/19/2022,-,dopeshot_d_p_TruthOrDare,Merge repos and link backend,4.2489,Max,Herkenhoff
-01/20/2022,-,dopeshot_d_p_TruthOrDare,Merge repos and link backend,2.5000,Max,Herkenhoff
-12/28/2021,-,dopeshot_d_p_TruthOrDare,Color Refactor,0.4472,Joy,Springer
-01/16/2022,-,dopeshot_d_p_TruthOrDare,Color Refactor,2.5489,Michael,C
-01/16/2022,-,dopeshot_d_p_TruthOrDare,Color Refactor,2.1594,Joy,Springer
-01/17/2022,-,dopeshot_d_p_TruthOrDare,Color Refactor,4.9708,Michael,C
-01/17/2022,-,dopeshot_d_p_TruthOrDare,Color Refactor,4.4033,Joy,Springer
-01/18/2022,-,dopeshot_d_p_TruthOrDare,Color Refactor,0.3494,Joy,Springer
-01/18/2022,-,dopeshot_d_p_TruthOrDare,Editor Tests + Refactor,2.7022,Michael,C
-01/19/2022,-,dopeshot_d_p_TruthOrDare,Editor Tests + Refactor,0.9300,Michael,C
-01/19/2022,-,dopeshot_d_p_TruthOrDare,Editor Tests + Refactor,6.7203,Joy,Springer
-01/20/2022,-,dopeshot_d_p_TruthOrDare,Editor Tests + Refactor,2.8922,Michael,C
-01/18/2022,-,dopeshot_d_p_TruthOrDare,fix google usernames and prevent duplicates,0.2703,Max,Herkenhoff
-01/19/2022,-,dopeshot_d_p_TruthOrDare,Rework Router (mit Outlet) (einfach Beispiel von Heuzeroth anschauen),2.8825,Michael,C
-01/18/2022,-,dopeshot_d_p_TruthOrDare,Missing Tests,5.2494,Joy,Springer
-01/18/2022,-,dopeshot_d_p_TruthOrDare,Remove example players,0.3103,Joy,Springer
-01/18/2022,-,dopeshot_d_p_TruthOrDare,Played when game,0.6964,Joy,Springer
-01/19/2022,-,dopeshot_d_p_TruthOrDare,Played when game,0.1903,Joy,Springer
-01/19/2022,-,dopeshot_d_p_TruthOrDare,Played when game,0.0753,Michael,C
-01/18/2022,-,dopeshot_d_p_TruthOrDare,optional jwt,1.1253,Max,Herkenhoff
-01/19/2022,-,dopeshot_d_p_TruthOrDare,optional jwt,2.1572,Maximilian,Dolbaum
-01/19/2022,-,dopeshot_d_p_TruthOrDare,Add played on setdetails,0.0936,Joy,Springer
-01/19/2022,-,dopeshot_d_p_TruthOrDare,Play button in Profile / Editor Page,1.6842,Joy,Springer
-01/19/2022,-,dopeshot_d_p_TruthOrDare,Play button in Profile / Editor Page,1.8356,Michael,C
-01/19/2022,-,dopeshot_d_p_TruthOrDare,State Callbacks Update,0.6850,Michael,C
-01/19/2022,-,dopeshot_d_p_TruthOrDare,Content,0.9639,Michael,C
-01/16/2022,-,dopeshot_d_p_TruthOrDare,gitlab docker,1.0497,Max,Herkenhoff
-01/17/2022,-,dopeshot_d_p_TruthOrDare,No clue what I am doing here testing frontend becoming a test god,3.1669,Maximilian,Dolbaum
-01/18/2022,-,dopeshot_d_p_TruthOrDare,No clue what I am doing here testing frontend becoming a test god,6.1039,Maximilian,Dolbaum
-01/19/2022,-,dopeshot_d_p_TruthOrDare,No clue what I am doing here testing frontend becoming a test god,4.1058,Maximilian,Dolbaum
-01/19/2022,-,dopeshot_d_p_TruthOrDare,No clue what I am doing here testing frontend becoming a test god,0.6722,Michael,C
-01/19/2022,-,dopeshot_d_p_TruthOrDare,Data  model contains migration logic,7.4608,Maximilian,Dolbaum
 08/10/2021,-,dopeshot_d_p_TruthOrDare,Schema für User kreieren,0.6108,Joy,Springer
 08/13/2021,-,dopeshot_d_p_TruthOrDare,Set Create + Delete Endpoint,0.3686,Max,Herkenhoff
 08/10/2021,-,dopeshot_d_p_TruthOrDare,Schema für Set kreieren,0.0206,Max,Herkenhoff
@@ -185,6 +152,7 @@
 12/19/2021,-,dopeshot_d_p_TruthOrDare,Game Algorithm,6.6217,Michael,C
 12/20/2021,-,dopeshot_d_p_TruthOrDare,Game Algorithm,1.5911,Michael,C
 12/20/2021,-,dopeshot_d_p_TruthOrDare,Game Algorithm,1.5625,Joy,Springer
+01/11/2022,-,dopeshot_d_p_TruthOrDare,BUG,0.0136,Michael,C
 11/28/2021,-,dopeshot_d_p_TruthOrDare,Rest Files rework,0.3700,Maximilian,Dolbaum
 11/30/2021,-,dopeshot_d_p_TruthOrDare,preview deploy,5.3344,Max,Herkenhoff
 12/02/2021,-,dopeshot_d_p_TruthOrDare,preview deploy,4.0667,Max,Herkenhoff
@@ -197,6 +165,8 @@
 12/20/2021,-,dopeshot_d_p_TruthOrDare,Error Handling,0.0011,Michael,C
 12/20/2021,-,dopeshot_d_p_TruthOrDare,Error Handling,0.6564,Joy,Springer
 12/30/2021,-,dopeshot_d_p_TruthOrDare,Database wiped in deploy,0.6614,Max,Herkenhoff
+01/19/2022,-,dopeshot_d_p_TruthOrDare,Merge repos and link backend,4.2489,Max,Herkenhoff
+01/20/2022,-,dopeshot_d_p_TruthOrDare,Merge repos and link backend,2.5000,Max,Herkenhoff
 12/12/2021,-,dopeshot_d_p_TruthOrDare,BestPractice test / validation,1.0525,Maximilian,Dolbaum
 12/15/2021,-,dopeshot_d_p_TruthOrDare,BestPractice test / validation,1.8894,Maximilian,Dolbaum
 12/16/2021,-,dopeshot_d_p_TruthOrDare,BestPractice test / validation,0.5417,Maximilian,Dolbaum
@@ -255,6 +225,12 @@
 12/28/2021,-,dopeshot_d_p_TruthOrDare,Frontend Tests Game UI + Startscreen,1.1722,Joy,Springer
 12/28/2021,-,dopeshot_d_p_TruthOrDare,Player Tests with overmind reset,0.2075,Joy,Springer
 12/28/2021,-,dopeshot_d_p_TruthOrDare,Meeting,0.6542,Joy,Springer
+12/28/2021,-,dopeshot_d_p_TruthOrDare,Color Refactor,0.4472,Joy,Springer
+01/16/2022,-,dopeshot_d_p_TruthOrDare,Color Refactor,2.5489,Michael,C
+01/16/2022,-,dopeshot_d_p_TruthOrDare,Color Refactor,2.1594,Joy,Springer
+01/17/2022,-,dopeshot_d_p_TruthOrDare,Color Refactor,4.9708,Michael,C
+01/17/2022,-,dopeshot_d_p_TruthOrDare,Color Refactor,4.4033,Joy,Springer
+01/18/2022,-,dopeshot_d_p_TruthOrDare,Color Refactor,0.3494,Joy,Springer
 12/29/2021,-,dopeshot_d_p_TruthOrDare,Sets require Categories,0.5939,Maximilian,Dolbaum
 12/29/2021,-,dopeshot_d_p_TruthOrDare,Sets require Categories,0.2250,Michael,C
 12/29/2021,-,dopeshot_d_p_TruthOrDare,Sets require a field how much they got played in total,0.7567,Maximilian,Dolbaum
@@ -303,6 +279,10 @@
 01/12/2022,-,dopeshot_d_p_TruthOrDare,Cleanup/update-packages,0.4897,Maximilian,Dolbaum
 01/13/2022,-,dopeshot_d_p_TruthOrDare,Frontend CI / CD,2.0958,Max,Herkenhoff
 01/13/2022,-,dopeshot_d_p_TruthOrDare,Cleanup/delete-unnecessary-code,0.1639,Maximilian,Dolbaum
+01/18/2022,-,dopeshot_d_p_TruthOrDare,Editor Tests + Refactor,2.7022,Michael,C
+01/19/2022,-,dopeshot_d_p_TruthOrDare,Editor Tests + Refactor,0.9300,Michael,C
+01/19/2022,-,dopeshot_d_p_TruthOrDare,Editor Tests + Refactor,6.7203,Joy,Springer
+01/20/2022,-,dopeshot_d_p_TruthOrDare,Editor Tests + Refactor,2.8922,Michael,C
 01/15/2022,-,dopeshot_d_p_TruthOrDare,Empty Set and Email Verification on Profile Refactor,2.3358,Joy,Springer
 01/15/2022,-,dopeshot_d_p_TruthOrDare,Empty Set and Email Verification on Profile Refactor,0.2356,Michael,C
 01/17/2022,-,dopeshot_d_p_TruthOrDare,Empty Set and Email Verification on Profile Refactor,0.4978,Michael,C
@@ -317,12 +297,32 @@
 01/15/2022,-,dopeshot_d_p_TruthOrDare,Add Google Analytics,0.1189,Michael,C
 01/15/2022,-,dopeshot_d_p_TruthOrDare,Use IconElement instead of string of svg,0.4533,Michael,C
 01/17/2022,-,dopeshot_d_p_TruthOrDare,Use IconElement instead of string of svg,1.3594,Michael,C
+01/16/2022,-,dopeshot_d_p_TruthOrDare,gitlab docker,1.0497,Max,Herkenhoff
 01/17/2022,-,dopeshot_d_p_TruthOrDare,Tests Coverage issue,0.6208,Joy,Springer
 01/17/2022,-,dopeshot_d_p_TruthOrDare,Frontend Units Tests (Utilities),2.1900,Maximilian,Dolbaum
+01/17/2022,-,dopeshot_d_p_TruthOrDare,No clue what I am doing here testing frontend becoming a test god,3.1669,Maximilian,Dolbaum
+01/18/2022,-,dopeshot_d_p_TruthOrDare,No clue what I am doing here testing frontend becoming a test god,6.1039,Maximilian,Dolbaum
+01/19/2022,-,dopeshot_d_p_TruthOrDare,No clue what I am doing here testing frontend becoming a test god,4.1058,Maximilian,Dolbaum
+01/19/2022,-,dopeshot_d_p_TruthOrDare,No clue what I am doing here testing frontend becoming a test god,0.6722,Michael,C
+01/18/2022,-,dopeshot_d_p_TruthOrDare,fix google usernames and prevent duplicates,0.2703,Max,Herkenhoff
+01/19/2022,-,dopeshot_d_p_TruthOrDare,Rework Router (mit Outlet) (einfach Beispiel von Heuzeroth anschauen),2.8825,Michael,C
+01/18/2022,-,dopeshot_d_p_TruthOrDare,Missing Tests,5.2494,Joy,Springer
 01/18/2022,-,dopeshot_d_p_TruthOrDare,Sortierung Explore page nach Kategorien,0.6092,Joy,Springer
+01/18/2022,-,dopeshot_d_p_TruthOrDare,Remove example players,0.3103,Joy,Springer
+01/18/2022,-,dopeshot_d_p_TruthOrDare,Played when game,0.6964,Joy,Springer
+01/19/2022,-,dopeshot_d_p_TruthOrDare,Played when game,0.1903,Joy,Springer
+01/19/2022,-,dopeshot_d_p_TruthOrDare,Played when game,0.0753,Michael,C
+01/18/2022,-,dopeshot_d_p_TruthOrDare,optional jwt,1.1253,Max,Herkenhoff
+01/19/2022,-,dopeshot_d_p_TruthOrDare,optional jwt,2.1572,Maximilian,Dolbaum
+01/19/2022,-,dopeshot_d_p_TruthOrDare,Add played on setdetails,0.0936,Joy,Springer
+01/19/2022,-,dopeshot_d_p_TruthOrDare,Play button in Profile / Editor Page,1.6842,Joy,Springer
+01/19/2022,-,dopeshot_d_p_TruthOrDare,Play button in Profile / Editor Page,1.8356,Michael,C
+01/19/2022,-,dopeshot_d_p_TruthOrDare,State Callbacks Update,0.6850,Michael,C
+01/19/2022,-,dopeshot_d_p_TruthOrDare,Data  model contains migration logic,7.4608,Maximilian,Dolbaum
+01/19/2022,-,dopeshot_d_p_TruthOrDare,Content,0.9639,Michael,C
 12/20/2021,-,dopeshot_d_p_TruthOrDare,Bug with Set failed to load after get set with invalid  id (when error handling implemented),0.3897,Michael,C
-01/20/2022,-,dopeshot_d_p_TruthOrDare,Final Touches,2.9861,Michael,C
 11/12/2021,-,dopeshot_d_p_TruthOrDare,Design Meeting,0.0011,Joy,Springer
 12/29/2021,-,dopeshot_d_p_TruthOrDare,29.12 Maxi + Michael 20min,0.3361,Maximilian,Dolbaum
 12/29/2021,-,dopeshot_d_p_TruthOrDare,Meeting,0.3061,Joy,Springer
 12/31/2021,-,dopeshot_d_p_TruthOrDare,Meeting,0.4578,Joy,Springer
+01/20/2022,-,dopeshot_d_p_TruthOrDare,Final Touches,2.9861,Michael,C
