@@ -1,9 +1,10 @@
 import * as XLSX from 'xlsx';
 import { formatDate, millisToDays } from './helper';
-const processOutputs = (list, setData, setTotalTime, setTimePerPerson,setTotalProjectTime) => {
+const processOutputs = (list, setData, setTotalTime, setTimePerPerson, setTotalProjectTime) => {
 
     // Sort the data by date
     list.sort((a, b) => new Date(a.Date) - new Date(b.Date))
+    console.log(list)
 
     // Total time in hours
     const sum = list.reduce((sum, value) => sum + parseFloat(value.Hours), 0)
@@ -22,9 +23,10 @@ const processOutputs = (list, setData, setTotalTime, setTimePerPerson,setTotalPr
     // Time per person per day
     const startDate = new Date(list[0].Date)
     const endDate = new Date(list.at(-1).Date)
-    const projectDuration = millisToDays(endDate-startDate)
+    const projectDuration = millisToDays(endDate - startDate)
     setTotalProjectTime(projectDuration)
-    const dataTemplate = list.reduce((res,value) => {
+    
+    const dataTemplate = list.reduce((res, value) => {
         if (!([value["First name"]] in res))
             res[value["First name"]] = 0
         return res
@@ -32,41 +34,50 @@ const processOutputs = (list, setData, setTotalTime, setTimePerPerson,setTotalPr
         Date: startDate
     })
 
-    
-    const finalData = [] 
-    for(let x = 0; x< projectDuration; x++){
+
+    const finalData = new Array(parseInt(projectDuration + 1))
+    console.log(finalData.length)
+    for (let x = 0; x < projectDuration; x++) {
         const nextDate = new Date(startDate)
-        finalData.push({...dataTemplate,Date: formatDate(new Date (new Date(nextDate).setDate(nextDate.getDate() +x)))})
+        finalData[x] = { ...dataTemplate, Date: formatDate(new Date(new Date(nextDate).setDate(nextDate.getDate() + x))) }
     }
-    
-    console.log(finalData);
-    // console.log(finalData[0]);
-    // console.log(list[0].Date);
-    
+    console.log(finalData.length)
+    console.log(projectDuration);
+    //console.log(finalData);
+
     // Fill in the hours from list
-    for(let x = 0; x< list.length-1;x++){
+    for (let x = 0; x < list.length; x++) {
         const entry = list[x]
-        finalData.find((o,i)=>{
-            if(o.Date === entry.Date){
-                finalData.at(-1)[entry["First name"]] += parseFloat(entry.Hours)
-                finalData[i][entry["First name"]] = parseFloat(finalData.at(-1)[entry["First name"]]).toFixed(2)
+        // Add time to total time
+        finalData.at(-1)[entry["First name"]] += parseFloat(entry.Hours)
+        // Find index of array with that date
+        const i = finalData.findIndex((o) => o.Date === entry.Date)
+        // Add time to this day
+        finalData[i][entry["First name"]] = parseFloat(finalData.at(-1)[entry["First name"]]).toFixed(2)
+
+        if (x === list.length - 1) {
+            console.log(list[x])
+            console.log(finalData[i])
+        }
+
+    }
+
+    // Fill in zeros with previous day value
+    for (let x = 1; x < finalData.length - 1; x++) {
+        Object.keys(finalData[x]).forEach((key) => {
+            if (finalData[x][key] === 0) {
+                finalData[x][key] = finalData[x - 1][key]
             }
         })
     }
 
-    // Fill in zeros with previous day value
-    for(let x = 1; x< finalData.length-1;x++){
-        Object.keys(finalData[x]).forEach((key)=>{
-            if(finalData[x][key] === 0){
-                finalData[x][key] = finalData[x-1][key]
-            }
-        })
-    }  
+    console.log(Object.values(finalData.at(-1)).slice(1).map(e => Math.round(parseFloat(e))));
+    console.log(Math.max.apply(null,Object.values(finalData.at(-1)).slice(1).map(e => Math.round(parseFloat(e)))));
     setData(finalData)
 }
 
 // process CSV data
-const processData = (dataString, setData, setTotalTime, setTimePerPerson,setTotalProjectTime) => {
+const processData = (dataString, setData, setTotalTime, setTimePerPerson, setTotalProjectTime) => {
     const dataStringLines = dataString.split(/\r\n|\n/);
     const headers = dataStringLines[0].split(/,(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)/);
 
@@ -100,11 +111,11 @@ const processData = (dataString, setData, setTotalTime, setTimePerPerson,setTota
         name: c,
         selector: c,
     }));
-    processOutputs(list, setData, setTotalTime, setTimePerPerson,setTotalProjectTime)
+    processOutputs(list, setData, setTotalTime, setTimePerPerson, setTotalProjectTime)
 }
 
 // Handle file upload
-export const handleFileUpload = (e, setData, setTotalTime, setTimePerPerson,setTotalProjectTime) => {
+export const handleFileUpload = (e, setData, setTotalTime, setTimePerPerson, setTotalProjectTime) => {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onload = (evt) => {
@@ -116,7 +127,7 @@ export const handleFileUpload = (e, setData, setTotalTime, setTimePerPerson,setT
         const ws = wb.Sheets[wsname];
         /* Convert array of arrays */
         const data = XLSX.utils.sheet_to_csv(ws, { header: 1 });
-        processData(data, setData, setTotalTime, setTimePerPerson,setTotalProjectTime);
+        processData(data, setData, setTotalTime, setTimePerPerson, setTotalProjectTime);
     };
     reader.readAsBinaryString(file);
 }

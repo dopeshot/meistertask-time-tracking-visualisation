@@ -11,5 +11,5 @@ export const millisToDays = (date) => {
 }
 
 export const randomColor = () => {
-    return Math.floor(Math.random()*16777215).toString(16);
+    return Math.floor(Math.random()*14777215+ 1000000).toString(16);
 }
