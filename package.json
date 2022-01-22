@@ -1,7 +1,7 @@
 {
   "name": "mttv",
   "version": "0.1.0",
-  "homepaeg": "https://dopeshot.github.io/meistertask-time-tracking-visualization",
+  "homepaeg": "https://dopeshot.github.io/meistertask-time-tracking-visualisation",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
