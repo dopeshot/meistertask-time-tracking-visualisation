@@ -1,16 +1,47 @@
 import * as XLSX from 'xlsx';
 import { formatDate, millisToDays } from './helper';
-const processOutputs = (list, setData, setTotalTime, setTimePerPerson, setTotalProjectTime) => {
+const createDataTemplate = (startDate, list) => {
+    return list.reduce((res, value) => {
+        if (!([value["First name"]] in res))
+            res[value["First name"]] = 0
+        return res
+    }, {
+        Date: startDate
+    })
+}
+const createArrayFromTemplate = (template, duration, startDate) => {
+    const finalData = new Array(parseInt(duration + 1))
+    for (let x = 0; x < duration; x++) {
+        const nextDate = new Date(startDate)
+        finalData[x] = { ...template, Date: formatDate(new Date(new Date(nextDate).setDate(nextDate.getDate() + x))) }
+    }
+    return finalData
+}
+const fillInHours = (templateArray, list) => {
+    for (let x = 0; x < list.length; x++) {
+        const entry = list[x]
+        // Add time to total time
+        templateArray.at(-1)[entry["First name"]] += parseFloat(entry.Hours)
+        // Find index of array with that date
+        const i = templateArray.findIndex((o) => o.Date === entry.Date)
+        // Add time to this day
+        templateArray[i][entry["First name"]] = parseFloat(templateArray.at(-1)[entry["First name"]]).toFixed(2)
 
-    // Sort the data by date
-    list.sort((a, b) => new Date(a.Date) - new Date(b.Date))
-    console.log(list)
-
-    // Total time in hours
-    const sum = list.reduce((sum, value) => sum + parseFloat(value.Hours), 0)
-    setTotalTime(sum)
-
-    // Time per person
+    }
+    return templateArray
+}
+const fillZeros = (data) => {
+    // Fill in zeros with previous day value
+    for (let x = 1; x < data.length - 1; x++) {
+        Object.keys(data[x]).forEach((key) => {
+            if (data[x][key] === 0) {
+                data[x][key] = data[x - 1][key]
+            }
+        })
+    }
+    return data
+}
+const extractTotalPersonTime = (list) => {
     const perPerson = list.reduce((res, value) => {
         if (!([value["First name"]] in res))
             res[value["First name"]] = 0
@@ -18,61 +49,36 @@ const processOutputs = (list, setData, setTotalTime, setTimePerPerson, setTotalP
         res[value["First name"]] += parseFloat(value.Hours)
         return res
     }, {})
-    setTimePerPerson(Object.keys(perPerson).map((person) => ({ name: person, hours: perPerson[person] })))
+    return Object.keys(perPerson).map((person) => ({ name: person, hours: perPerson[person] }))
+}
 
-    // Time per person per day
-    const startDate = new Date(list[0].Date)
-    const endDate = new Date(list.at(-1).Date)
-    const projectDuration = millisToDays(endDate - startDate)
-    setTotalProjectTime(projectDuration)
+const processOutputs = (list, setData, setTotalTime, setTimePerPerson, setTotalProjectTime) => {
+
+    // Sort the data by date
+    list.sort((a, b) => new Date(a.Date) - new Date(b.Date))
+
+    // Total time in hours
+    const sum = list.reduce((sum, value) => sum + parseFloat(value.Hours), 0)
+    setTotalTime(sum)
+
+    // Time per person
     
-    const dataTemplate = list.reduce((res, value) => {
-        if (!([value["First name"]] in res))
-            res[value["First name"]] = 0
-        return res
-    }, {
-        Date: startDate
-    })
+    const timePerPerson = extractTotalPersonTime(list)
+    setTimePerPerson(timePerPerson)
 
+    // Time data
+    const startDate = new Date(list[0].Date) 
+    const projectDuration = millisToDays(new Date(list.at(-1).Date) - startDate)
+    
+    const dataTemplate = createDataTemplate(startDate, list)
 
-    const finalData = new Array(parseInt(projectDuration + 1))
-    console.log(finalData.length)
-    for (let x = 0; x < projectDuration; x++) {
-        const nextDate = new Date(startDate)
-        finalData[x] = { ...dataTemplate, Date: formatDate(new Date(new Date(nextDate).setDate(nextDate.getDate() + x))) }
-    }
-    console.log(finalData.length)
-    console.log(projectDuration);
-    //console.log(finalData);
+    const templateArray = createArrayFromTemplate(dataTemplate, projectDuration +1, startDate)
+    console.log(templateArray);
+    const filledData = fillInHours(templateArray, list)
 
-    // Fill in the hours from list
-    for (let x = 0; x < list.length; x++) {
-        const entry = list[x]
-        // Add time to total time
-        finalData.at(-1)[entry["First name"]] += parseFloat(entry.Hours)
-        // Find index of array with that date
-        const i = finalData.findIndex((o) => o.Date === entry.Date)
-        // Add time to this day
-        finalData[i][entry["First name"]] = parseFloat(finalData.at(-1)[entry["First name"]]).toFixed(2)
+    const finalData = fillZeros(filledData)
 
-        if (x === list.length - 1) {
-            console.log(list[x])
-            console.log(finalData[i])
-        }
-
-    }
-
-    // Fill in zeros with previous day value
-    for (let x = 1; x < finalData.length - 1; x++) {
-        Object.keys(finalData[x]).forEach((key) => {
-            if (finalData[x][key] === 0) {
-                finalData[x][key] = finalData[x - 1][key]
-            }
-        })
-    }
-
-    console.log(Object.values(finalData.at(-1)).slice(1).map(e => Math.round(parseFloat(e))));
-    console.log(Math.max.apply(null,Object.values(finalData.at(-1)).slice(1).map(e => Math.round(parseFloat(e)))));
+    setTotalProjectTime(projectDuration)
     setData(finalData)
 }
 
