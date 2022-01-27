@@ -21,6 +21,7 @@ function App() {
     </>)}
     </ul>
     {data.length > 0 && <TimeLineChart data={data} />}
+    <h4>Version 0.2</h4>
   </>
 }
 
