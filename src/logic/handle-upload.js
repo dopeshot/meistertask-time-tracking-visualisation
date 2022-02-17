@@ -64,7 +64,7 @@ const processOutputs = (list, setData, setTotalTime, setTimePerPerson, setTotalP
     // Time per person
     
     const timePerPerson = extractTotalPersonTime(list)
-    setTimePerPerson(timePerPerson)
+    setTimePerPerson(timePerPerson.sort((a,b)=> b.hours-a.hours))
 
     // Time data
     const startDate = new Date(list[0].Date) 

@@ -13,7 +13,7 @@ function App() {
       accept=".csv"
       onChange={(event) => handleFileUpload(event,setData,setTotalTime,setTimePerPerson,setTotalProjectTime)}
     />
-    <h2>[{totalProjectTime.toFixed(2)}] Days the project existed.</h2>
+    <h2>[{totalProjectTime.toFixed(2)}] Days since project start.</h2>
     <h2>[{totalTime.toFixed(2)}] Hours of work.</h2>
     <ul>
     {timePerPerson.map((data) => <>
